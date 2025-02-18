@@ -1,1 +1,19 @@
+@font-face{
+  font-family:Montesarrat;
+  src:url("../src/assets/fonts/Montserrat-Regular.ttf")
+}
+
+@font-face {
+  font-family: NunitoSans;
+  src: url("../src/assets/fonts/NunitoSans_10pt-Regular.ttf");
+}
 @import "tailwindcss";
+
+@theme{
+  --font-Montesarrat:Montesarrat,"sans-serif";
+  --font-NunitoSans:NunitoSans,"sans-serif";
+  --color-primary:#FFCE1A;
+  --color-secondary:#0D0842;
+  --color-blackBG:#F3F3F3;
+  --color-Favourite:#FF5841;
+}
