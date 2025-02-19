@@ -3,15 +3,15 @@ import logo from "../assets/svg/logoipsum-365.svg";
 //icons :
 import { FaBarsStaggered } from "react-icons/fa6";
 import { IoSearchOutline } from "react-icons/io5";
-
-{
-  /* <IoSearchOutline /> */
-}
+import { AiOutlineUser } from "react-icons/ai";
+import { FaHeartCirclePlus } from "react-icons/fa6";
+import { PiShoppingCartSimple } from "react-icons/pi";
 
 const Navbar = () => {
   return (
     <header className="max-w-screen-2xl mx-auto px-4 py-6">
       <nav className="flex justify-between items-center">
+        {/* left Section  */}
         <div className="flex items-center md:gap-16 gap-4">
           <Link to="/">
             <img src={logo} alt={<FaBarsStaggered />} className="size-8" />
@@ -26,7 +26,17 @@ const Navbar = () => {
             />
           </div>
         </div>
-        <div>icons</div>
+        {/* right Section  */}
+        <div className="flex justify-center md:gap-4 ">
+          <AiOutlineUser className="size-6" />
+          <button className="hidden sm:block">
+            <FaHeartCirclePlus className="size-6" />
+          </button>
+
+          <Link to="/orders">
+            <PiShoppingCartSimple className="size-6" />
+          </Link>
+        </div>
       </nav>
     </header>
   );
