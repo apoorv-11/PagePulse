@@ -7,8 +7,18 @@ import { AiOutlineUser } from "react-icons/ai";
 import { FaHeartCirclePlus } from "react-icons/fa6";
 import { PiShoppingCartSimple } from "react-icons/pi";
 import avatarIcon from "../assets/avatar.png";
+import { useState } from "react";
 
 const Navbar = () => {
+  const [isDropDown, setIsDropDown] = useState(false);
+
+  const navigation = [
+    { name: "Dashboard", href: "/dashbaord" },
+    { name: "Orders", href: "/orders" },
+    { name: "Cart Page", href: "/cart-page" },
+    { name: "Check Out", href: "/check-out" },
+  ];
+
   let currentUser = true;
   return (
     <header className="max-w-screen-2xl mx-auto px-4 py-6">
@@ -30,15 +40,33 @@ const Navbar = () => {
         </div>
 
         {/* right Section  */}
-        <div className="flex items-center md:space-x-3 space-x-2">
+        <div className=" relative flex items-center md:space-x-3 space-x-2">
           <div>
             {currentUser ? (
-              <div className="">
-                <img
-                  src={avatarIcon}
-                  alt="avatar"
-                  className={" rounded-full ring-blue-500 ring-2 size-7"}
-                />
+              <div>
+                <button onClick={() => setIsDropDown(!isDropDown)}>
+                  <img
+                    src={avatarIcon}
+                    alt="avatar"
+                    className={" rounded-full ring-blue-500 ring-2 size-7"}
+                  />
+                </button>
+                {isDropDown && (
+                  <div className="absolute right-0 mt-2 w-48 bg-white shadow-lg z-40 rounded-md">
+                    <ul className="py-2">
+                      {navigation.map((item) => (
+                        <Link to={item.href} key={item.name}>
+                          <li
+                            onClick={() => setIsDropDown(false)}
+                            className="block px-4 py-2 text-sm hover:bg-gray-300 rounded-sm"
+                          >
+                            {item.name}
+                          </li>
+                        </Link>
+                      ))}
+                    </ul>
+                  </div>
+                )}
               </div>
             ) : (
               <AiOutlineUser className="size-6" />
