@@ -6,8 +6,10 @@ import { IoSearchOutline } from "react-icons/io5";
 import { AiOutlineUser } from "react-icons/ai";
 import { FaHeartCirclePlus } from "react-icons/fa6";
 import { PiShoppingCartSimple } from "react-icons/pi";
+import avatarIcon from "../assets/avatar.png";
 
 const Navbar = () => {
+  let currentUser = true;
   return (
     <header className="max-w-screen-2xl mx-auto px-4 py-6">
       <nav className="flex justify-between items-center">
@@ -26,15 +28,32 @@ const Navbar = () => {
             />
           </div>
         </div>
+
         {/* right Section  */}
-        <div className="flex justify-center md:gap-4 ">
-          <AiOutlineUser className="size-6" />
+        <div className="flex items-center md:space-x-3 space-x-2">
+          <div>
+            {currentUser ? (
+              <div className="">
+                <img
+                  src={avatarIcon}
+                  alt="avatar"
+                  className={" rounded-full ring-blue-500 ring-2 size-7"}
+                />
+              </div>
+            ) : (
+              <AiOutlineUser className="size-6" />
+            )}
+          </div>
           <button className="hidden sm:block">
             <FaHeartCirclePlus className="size-6" />
           </button>
 
-          <Link to="/orders">
+          <Link
+            to="/orders"
+            className="bg-primary p-2 sm:px-6 py-2 flex items-center rounded-sm gap-2"
+          >
             <PiShoppingCartSimple className="size-6" />
+            <span className="sm:ml-1 text-lg semibold">0</span>
           </Link>
         </div>
       </nav>
