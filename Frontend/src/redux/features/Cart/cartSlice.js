@@ -22,7 +22,7 @@ const cartSlice = createSlice({
       if (!existingItem) {
         state.cartItems.push(action.payload);
         Swal.fire({
-          position: "top-center",
+          position: "center",
           icon: "success",
           title: "Product Added Successfully",
           showConfiguration: false,
@@ -30,7 +30,7 @@ const cartSlice = createSlice({
         });
       } else {
         Swal.fire({
-          position: "top-center",
+          position: "center",
           icon: "error",
           title: "Product already in Cart",
         });
