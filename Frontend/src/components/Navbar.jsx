@@ -19,7 +19,7 @@ const Navbar = () => {
     { name: "Check Out", href: "/check-out" },
   ];
 
-  let currentUser = true;
+  let currentUser = false;
   return (
     <header className="max-w-screen-2xl mx-auto px-4 py-6">
       <nav className="flex justify-between items-center">
