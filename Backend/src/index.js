@@ -4,11 +4,16 @@ import cors from "cors";
 import cookieParser from "cookie-parser";
 import ConnectionDB from "./Lib/db.js";
 
+//importing Routes:
+import bookRoutes from "./Routes/book.routes.js";
+
 dotenv.config();
 
+//Initializing of Port and express
 const PORT = process.env.PORT;
 const app = express();
 
+//Middlewares :
 app.use(express.json());
 app.use(
   cors({
@@ -17,6 +22,9 @@ app.use(
   })
 );
 app.use(cookieParser());
+
+//Routes:
+app.use("/api/books", bookRoutes);
 
 app.listen(PORT, () => {
   console.log(`Server is running on :${PORT}`);
