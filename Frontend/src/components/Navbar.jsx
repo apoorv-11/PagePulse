@@ -9,8 +9,13 @@ import { PiShoppingCartSimple } from "react-icons/pi";
 import avatarIcon from "../assets/avatar.png";
 import { useState } from "react";
 
+//Redux :
+import { useSelector } from "react-redux";
+
 const Navbar = () => {
   const [isDropDown, setIsDropDown] = useState(false);
+
+  const cartItems = useSelector((state) => state.cart.cartItems);
 
   const navigation = [
     { name: "Dashboard", href: "/dashbaord" },
@@ -77,11 +82,17 @@ const Navbar = () => {
           </button>
 
           <Link
-            to="/orders"
+            to="/cart"
             className="bg-primary p-2 sm:px-6 py-2 flex items-center rounded-sm gap-2"
           >
             <PiShoppingCartSimple className="size-6" />
-            <span className="sm:ml-1 text-lg semibold">0</span>
+            {cartItems.length > 0 ? (
+              <span className="sm:ml-1 text-lg semibold">
+                {cartItems.length}
+              </span>
+            ) : (
+              <span className="sm:ml-1 text-lg semibold">0</span>
+            )}
           </Link>
         </div>
       </nav>
