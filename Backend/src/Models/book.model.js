@@ -16,7 +16,7 @@ const bookSchema = new mongoose.Schema(
     },
     trending: {
       type: Boolean,
-      required: true,
+      default: false,
     },
     coverImage: {
       type: String,
