@@ -1,5 +1,5 @@
 /* eslint-disable react/jsx-key */
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import BookCard from "../pages/Books/BookCard.jsx";
 
 // Import Swiper React components
@@ -10,6 +10,7 @@ import { Pagination, Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
+import { useFetchAllBooksQuery } from "../redux/features/Books/BooksApi.js";
 
 const categories = [
   "Choose a genre",
@@ -20,25 +21,21 @@ const categories = [
 ];
 
 const TopSelling = () => {
-  const [books, setBooks] = useState([]);
-
   const [selectedCategory, setSelectedCategory] = useState("Choose a genre");
 
-  useEffect(() => {
-    fetch("books.json")
-      .then((res) => res.json())
-      .then((data) => setBooks(data));
-  }, []);
+  const { data } = useFetchAllBooksQuery();
+  const books = data?.data || [];
+  console.log(books);
 
   const filterBook =
     selectedCategory === "Choose a genre"
       ? books
       : books.filter(
           (book) =>
-            book.category.toLowerCase() === selectedCategory.toLowerCase()
+            book.category.toLowerCase().trim() ===
+            selectedCategory.toLowerCase().trim()
         );
 
-  console.log(filterBook);
   return (
     <div className="py-10">
       <h1 className="text-3xl font-semibold mb-6 ">Top Sellers</h1>

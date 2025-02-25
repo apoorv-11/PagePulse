@@ -13,7 +13,7 @@ const router = express.Router();
 router.post("/create-book", BookPost);
 
 //All Books :
-router.get("/get-books", GetBooks);
+router.get("/", GetBooks);
 
 //Single Book :
 router.get("/get-book/:id", getSingleBook);
