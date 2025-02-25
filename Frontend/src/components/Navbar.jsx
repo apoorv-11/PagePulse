@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import logo from "../assets/svg/logoipsum-365.svg";
 //icons :
 import { FaBarsStaggered } from "react-icons/fa6";
@@ -11,9 +11,12 @@ import { useState } from "react";
 
 //Redux :
 import { useSelector } from "react-redux";
+import { useAuth } from "../Context/auth.context";
 
 const Navbar = () => {
   const [isDropDown, setIsDropDown] = useState(false);
+
+  const navigate = useNavigate();
 
   const cartItems = useSelector((state) => state.cart.cartItems);
 
@@ -24,7 +27,12 @@ const Navbar = () => {
     { name: "Check Out", href: "/check-out" },
   ];
 
-  let currentUser = false;
+  const { currentUser, logout } = useAuth();
+
+  const handleLogOut = () => {
+    logout();
+  };
+
   return (
     <header className="max-w-screen-2xl mx-auto px-4 py-6">
       <nav className="flex justify-between items-center">
@@ -69,12 +77,23 @@ const Navbar = () => {
                           </li>
                         </Link>
                       ))}
+                      <li>
+                        <button
+                          onClick={handleLogOut}
+                          className="block px-4 py-2 text-sm hover:bg-gray-300 rounded-sm"
+                        >
+                          LogOut
+                        </button>
+                      </li>
                     </ul>
                   </div>
                 )}
               </div>
             ) : (
-              <AiOutlineUser className="size-6" />
+              <AiOutlineUser
+                onClick={() => navigate("/login")}
+                className="size-6"
+              />
             )}
           </div>
           <button className="hidden sm:block">

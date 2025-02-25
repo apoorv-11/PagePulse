@@ -1,7 +1,9 @@
-import { Link } from "react-router-dom";
+/* eslint-disable no-unused-vars */
+import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { FaGoogle } from "react-icons/fa";
 import { useForm } from "react-hook-form";
+import { useAuth } from "../../Context/auth.context.jsx";
 
 const Register = () => {
   const [message, setMessage] = useState("");
@@ -10,16 +12,36 @@ const Register = () => {
     handleSubmit,
     formState: { errors },
   } = useForm();
+  const navigate = useNavigate();
+  const { registerUser, signInWithGoogle } = useAuth();
 
-  const onSubmit = (data) => console.log(data);
+  //Register User :
 
-  const handleGoogleSignIn = () => {};
+  const onSubmit = async (data) => {
+    console.log(data);
+    try {
+      await registerUser(data.email, data.password);
+      alert("user Registeration Successfull");
+    } catch (error) {
+      setMessage("Please Provide a valid email and Password");
+    }
+  };
+
+  const handleGoogleSignIn = async () => {
+    try {
+      await signInWithGoogle();
+      alert("Login Successfull");
+      navigate("/");
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   return (
     <div className="h-[calc(100vh-120px)] flex justify-center items-center">
       <div className="w-full max-w-sm mx-auto bg-neutral-100/85 shadow-md rounded px-8 pt-6 pb-8 mb-4 border">
         <h2 className="text-4xl text-center mt-2 py-4 font-semibold mb-4">
-          Login
+          Register
         </h2>
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className="mb-6">
@@ -56,16 +78,16 @@ const Register = () => {
           </div>
           <div className="flex justify-center">
             <button className="bg-primary px-5 py-2 w-full text-xl rounded-md font-semibold border md:mt-2 sm:mt-3 hover:bg-blue-600 hover:text-white delay-150  ease-in-out">
-              Login
+              Register
             </button>
 
             {message && <p className="text-red-500 text-sm">{message}</p>}
           </div>
           <p className="mt-6 text-md font-semibold ">
             {" "}
-            Haven&apos;t an Account? Please{" "}
+            Already have an Account? Please{" "}
             <span className="text-Favourite hover:text-blue-300">
-              <Link to={"/register"}>Register</Link>
+              <Link to={"/login"}>Login</Link>
             </span>
           </p>
           <div className="mt-4">
