@@ -6,6 +6,7 @@ import ConnectionDB from "./Lib/db.js";
 
 //importing Routes:
 import bookRoutes from "./Routes/book.routes.js";
+import orderRoutes from "./Routes/order.Route.js";
 
 dotenv.config();
 
@@ -25,6 +26,7 @@ app.use(cookieParser());
 
 //Routes:
 app.use("/api/books", bookRoutes);
+app.use("/api/orders", orderRoutes);
 
 app.listen(PORT, () => {
   console.log(`Server is running on :${PORT}`);

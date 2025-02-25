@@ -1,8 +1,11 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable react/no-unknown-property */
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { useForm } from "react-hook-form";
 import { useState } from "react";
+import { useAuth } from "../../Context/auth.context";
+import { useCreateOrderMutation } from "../../redux/features/orders/OrderApi.js";
 
 const CheckOut = () => {
   const cartItems = useSelector((state) => state.cart.cartItems);
@@ -12,7 +15,10 @@ const CheckOut = () => {
     formState: { errors },
   } = useForm();
 
-  const currentUser = { email: "test@example.com" }; // Replace with actual user data
+  const navigate = useNavigate();
+  const { currentUser } = useAuth();
+
+  const [createOrder] = useCreateOrderMutation();
 
   const totalPrice = cartItems
     .reduce((acc, item) => acc + item.newPrice, 0)
@@ -20,7 +26,7 @@ const CheckOut = () => {
 
   const [isChecked, setIsChecked] = useState(false);
 
-  const onSubmit = (data) => {
+  const onSubmit = async (data) => {
     console.log(data);
     const newOrder = {
       name: data.name,
@@ -35,7 +41,13 @@ const CheckOut = () => {
       productIds: cartItems.map((item) => item?._id),
       totalPrice: totalPrice,
     };
-    console.log(newOrder);
+    try {
+      await createOrder(newOrder).unwrap();
+      alert("Your Order Placed Successfully");
+      navigate("/order");
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
