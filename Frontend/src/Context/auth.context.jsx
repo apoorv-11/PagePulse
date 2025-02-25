@@ -59,6 +59,7 @@ export const AuthProvide = ({ children }) => {
   }, []);
 
   const value = {
+    loading,
     currentUser,
     registerUser,
     loginUser,

@@ -9,10 +9,6 @@ export const store = configureStore({
     [bookApi.reducerPath]: bookApi.reducer,
     [orderApi.reducerPath]: orderApi.reducer,
   },
-  middleware: (getDefaultMiddleware) => {
-    return getDefaultMiddleware().concat(
-      bookApi.middleware,
-      orderApi.middleware
-    );
-  },
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware().concat(bookApi.middleware, orderApi.middleware),
 });

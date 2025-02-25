@@ -21,10 +21,10 @@ const Navbar = () => {
   const cartItems = useSelector((state) => state.cart.cartItems);
 
   const navigation = [
-    { name: "Dashboard", href: "/dashbaord" },
-    { name: "Orders", href: "/orders" },
-    { name: "Cart Page", href: "/cart-page" },
-    { name: "Check Out", href: "/check-out" },
+    { name: "Dashboard", href: "/" },
+    { name: "Orders", href: "/order" },
+    { name: "Cart Page", href: "/cart" },
+    { name: "Check Out", href: "/checkout" },
   ];
 
   const { currentUser, logout } = useAuth();

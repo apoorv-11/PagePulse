@@ -16,8 +16,8 @@ const ordersApi = createApi({
         url: "/",
         method: "POST",
         body: newOrder,
+        credentials: "include",
       }),
-      invalidatesTags: ["Orders"],
     }),
     getOrderByEmail: builder.query({
       query: (email) => ({
