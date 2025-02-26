@@ -18,11 +18,12 @@ const app = express();
 
 //Middlewares :
 app.use(express.json());
-cors({
-  origin: ["http://localhost:5173", "https://page-pulse-five.vercel.app"],
-  methods: ["GET", "POST", "PUT", "DELETE"],
-  credentials: true,
-});
+app.use(
+  cors({
+    origin: "https://page-pulse-five.vercel.app",
+    credentials: true,
+  })
+);
 app.use(cookieParser());
 
 //Routes:
