@@ -1,5 +1,5 @@
 const getBaseUrl = () => {
-  return "http://localhost:8080";
+  return "https://page-pulse-gx91.vercel.app";
 };
 
 export default getBaseUrl;
