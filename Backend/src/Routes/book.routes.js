@@ -7,10 +7,12 @@ import {
   DeleteBook,
 } from "../Controllers/Book.Controllers.js";
 
+import verifyAdminToken from "../Middlewwares/verifyToken.middleware.js";
+
 const router = express.Router();
 
 //Create Book :
-router.post("/create-book", BookPost);
+router.post("/create-book", verifyAdminToken, BookPost);
 
 //All Books :
 router.get("/", GetBooks);
@@ -19,9 +21,9 @@ router.get("/", GetBooks);
 router.get("/get-book/:id", getSingleBook);
 
 //Update-book :
-router.put("/update-book/:id", updateBook);
+router.put("/update-book/:id", verifyAdminToken, updateBook);
 
 //Delete Book:
-router.delete("/delete-book/:id", DeleteBook);
+router.delete("/delete-book/:id", verifyAdminToken, DeleteBook);
 
 export default router;

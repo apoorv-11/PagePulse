@@ -50,6 +50,11 @@ const Navbar = () => {
               className="bg-[#EAEAEA] w-full py-1 md:px-8 px-6 rounded-md focus:outline-none"
             />
           </div>
+          <div>
+            <button className="bg-primary font-semibold md:px-4 text-md md:py-2 md:ml-2 md:mr-2 rounded shadow-xl cursor-pointer">
+              <Link to={"/admin"}>Admin </Link>
+            </button>
+          </div>
         </div>
 
         {/* right Section  */}

@@ -8,6 +8,7 @@ import ConnectionDB from "./Lib/db.js";
 import bookRoutes from "./Routes/book.routes.js";
 import orderRoutes from "./Routes/order.Route.js";
 import userRoutes from "./Routes/user.Routes.js";
+import adminRoutes from "./Routes/admin.Routes.js";
 
 dotenv.config();
 
@@ -29,6 +30,7 @@ app.use(cookieParser());
 app.use("/api/books", bookRoutes);
 app.use("/api/orders", orderRoutes);
 app.use("/api/auth", userRoutes);
+app.use("/api/admin", adminRoutes);
 
 app.listen(PORT, () => {
   console.log(`Server is running on :${PORT}`);
