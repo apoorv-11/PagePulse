@@ -2,13 +2,13 @@ import express from "express";
 import dotenv from "dotenv";
 import cors from "cors";
 import cookieParser from "cookie-parser";
-import ConnectionDB from "./src/Lib/db.js";
+import ConnectionDB from "./Lib/db.js";
 
 //importing Routes:
-import bookRoutes from "./src/Routes/book.routes.js";
-import orderRoutes from "./src/Routes/order.Route.js";
-import userRoutes from "./src/Routes/user.Routes.js";
-import adminRoutes from "./src/Routes/admin.Routes.js";
+import bookRoutes from "./Routes/book.routes.js";
+import orderRoutes from "./Routes/order.Route.js";
+import userRoutes from "./Routes/user.Routes.js";
+import adminRoutes from "./Routes/admin.Routes.js";
 
 dotenv.config();
 
