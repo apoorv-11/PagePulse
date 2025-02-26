@@ -20,7 +20,10 @@ const app = express();
 app.use(express.json());
 app.use(
   cors({
-    origin: "http://localhost:5173",
+    origin: [
+      "http://localhost:5173",
+      "https://page-pulse-mjh7sf0ap-nevin100s-projects.vercel.app",
+    ],
     credentials: true,
   })
 );
