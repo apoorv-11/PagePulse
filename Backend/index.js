@@ -34,7 +34,9 @@ app.use("/api/books", bookRoutes);
 app.use("/api/orders", orderRoutes);
 app.use("/api/auth", userRoutes);
 app.use("/api/admin", adminRoutes);
-
+app.use("/", (req, res) => {
+  res.send("Book Store Server is running!");
+});
 app.listen(PORT, () => {
   console.log(`Server is running on :${PORT}`);
   ConnectionDB();
