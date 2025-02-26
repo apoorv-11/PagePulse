@@ -19,7 +19,7 @@ const app = express();
 //Middlewares :
 app.use(express.json());
 cors({
-  origin: ["http://localhost:5173", "https://page-pulse-five.vercel.app/"],
+  origin: ["http://localhost:5173", "https://page-pulse-five.vercel.app"],
   methods: ["GET", "POST", "PUT", "DELETE"],
   credentials: true,
 });
