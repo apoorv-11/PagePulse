@@ -39,7 +39,7 @@
 ---
 
 ## 📸 Sneak Peek (Add Screenshots!)
-| Homepage | Product View | Admin Panel |
+| Pages |
 |---------|--------------|-------------|
 | ![image](https://github.com/user-attachments/assets/cc808f68-2533-4e9e-9fb0-be832efc58f0)
  | ![image](https://github.com/user-attachments/assets/e7be3555-c182-4ede-9a85-bdc40de1be63)
