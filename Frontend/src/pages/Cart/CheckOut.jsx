@@ -51,7 +51,7 @@ const CheckOut = () => {
         cancelButtonColor: "#d33",
         confirmButtonText: "Yes, It's Okay!",
       });
-      navigate("/order");
+      navigate("/orders");
     } catch (error) {
       console.error("Error place an order", error);
       alert("Failed to place an order");
@@ -236,14 +236,16 @@ const CheckOut = () => {
 
                     <div className="md:col-span-1">
                       <label htmlFor="zipcode">Zipcode</label>
-                      <input
-                        {...register("zipcode", { required: true })}
-                        type="text"
-                        name="zipcode"
-                        id="zipcode"
-                        className="transition-all flex items-center h-10 border mt-1 rounded px-4 w-full bg-gray-50"
-                        placeholder=""
-                      />
+                      <div className="md:col-span-2">
+                        <input
+                          {...register("zipcode", { required: true })}
+                          type="text"
+                          name="zipcode"
+                          id="zipcode"
+                          className="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
+                          placeholder="123456"
+                        />
+                      </div>
                     </div>
 
                     <div className="md:col-span-5 mt-3">
