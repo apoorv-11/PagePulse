@@ -19,7 +19,7 @@
 
 ### 🛒 **User Experience**
 - 🎨 Beautiful & **fully responsive UI** powered by **Tailwind CSS**.
-- 🔐 Login/Register via **Firebase Authentication** and classic JWT auth.
+- 🔐 Login/Register via **Firebase Authentication** and classic **Firebase** Auth.
 - 🧠 Smart **state management** with **Redux**, **RTK Query**, and **Context API**.
 
 ---
