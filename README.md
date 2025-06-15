@@ -39,12 +39,11 @@
 ---
 
 ## 📸 Sneak Peek (Add Screenshots!)
-| Pages |
-|---------|--------------|-------------|
+
 | ![image](https://github.com/user-attachments/assets/cc808f68-2533-4e9e-9fb0-be832efc58f0)
- | ![image](https://github.com/user-attachments/assets/e7be3555-c182-4ede-9a85-bdc40de1be63)
+| ![image](https://github.com/user-attachments/assets/e7be3555-c182-4ede-9a85-bdc40de1be63)
 | ![image](https://github.com/user-attachments/assets/ea205eb8-7fdb-42d4-bd5f-f40bc4982002)
-|
+
 
 ---
 
