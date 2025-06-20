@@ -3,3 +3,5 @@ const getBaseUrl = () => {
 };
 
 export default getBaseUrl;
+
+// http://localhost:8080

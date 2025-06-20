@@ -37,6 +37,10 @@ app.use(
 );
 app.use(cookieParser());
 
+app.get("/", async (req, res) => {
+  res.send("Hello From the backend");
+});
+
 //Routes:
 app.use("/api/books", bookRoutes);
 app.use("/api/orders", orderRoutes);
