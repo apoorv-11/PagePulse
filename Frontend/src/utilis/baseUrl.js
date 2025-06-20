@@ -1,5 +1,5 @@
 const getBaseUrl = () => {
-  return "http://localhost:8080";
+  return "https://pagepulse-dj52.onrender.com";
 };
 
 export default getBaseUrl;
