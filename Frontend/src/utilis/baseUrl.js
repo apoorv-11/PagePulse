@@ -1,5 +1,5 @@
 const getBaseUrl = () => {
-  return "https://pagepulse-dj52.onrender.com";
+  return "https://pagepulse-mg73.onrender.com";
 };
 
 export default getBaseUrl;
