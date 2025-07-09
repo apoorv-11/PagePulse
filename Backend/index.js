@@ -18,14 +18,14 @@ const app = express();
 
 //Middlewares :
 app.use(express.json());
-const allowedOrigins = [
-  "http://localhost:5173",
-  "https://page-pulse-five.vercel.app",
-];
-
 app.use(
   cors({
     origin: (origin, callback) => {
+      console.log("Incoming request from origin:", origin);
+      const allowedOrigins = [
+        "http://localhost:5173",
+        "https://page-pulse-five.vercel.app",
+      ];
       if (!origin || allowedOrigins.includes(origin)) {
         callback(null, true);
       } else {
@@ -35,6 +35,7 @@ app.use(
     credentials: true,
   })
 );
+
 app.use(cookieParser());
 
 app.get("/", async (req, res) => {
