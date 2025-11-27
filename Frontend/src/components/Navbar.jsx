@@ -107,9 +107,9 @@ const Navbar = () => {
             )}
           </div>
 
-          <button className="hidden sm:block">
-            <FaHeartCirclePlus className="size-6" />
-          </button>
+          {/* <button className="hidden sm:block"> */}
+            {/* <FaHeartCirclePlus className="size-6" />/ */}
+          {/* </button> */}
 
           <Link
             to="/cart"
