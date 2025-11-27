@@ -19,7 +19,7 @@ const Navbar = () => {
 
   const navigation = [
     { name: "Dashboard", href: "/" },
-    { name: "Orders", href: "/order" },
+    // { name: "Orders", href: "/order" },
     { name: "Cart Page", href: "/cart" },
     { name: "Check Out", href: "/checkout" },
   ];
@@ -44,14 +44,14 @@ const Navbar = () => {
           </button>
 
           {/* Search (hidden on very small screens) */}
-          <div className="relative hidden sm:block sm:w-60 md:w-72">
-            <IoSearchOutline className="absolute left-3 top-2.5 text-gray-500" />
+          {/* <div className="relative hidden sm:block sm:w-60 md:w-72"> */}
+            {/* <IoSearchOutline className="absolute left-3 top-2.5 text-gray-500" />
             <input
               type="text"
               placeholder="Search Product"
               className="bg-[#EAEAEA] w-full py-2 pl-10 pr-4 rounded-md focus:outline-none"
-            />
-          </div>
+            /> */}
+          {/* </div> */}
         </div>
 
         {/* Right Section */}
