@@ -16,6 +16,7 @@ const categories = [
   "Choose a genre",
   "Business",
   "Fiction",
+  "Technology",
   "Horror",
   "Adventure",
 ];
